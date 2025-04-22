@@ -16,12 +16,12 @@ def home():
     return 'Webhook is running.'
 @app.route('/debug', methods=['POST'])
 def debug():
-    data = request.get_json()
     print("🟢 DEBUG START")
-    print(data)
+    print("Raw headers:", dict(request.headers))
+    print("Raw body:", request.data.decode('utf-8'))
     print("🟢 DEBUG END")
     return 'OK'
-
+    
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
