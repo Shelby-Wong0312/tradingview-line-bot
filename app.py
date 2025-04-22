@@ -14,6 +14,11 @@ def webhook():
 @app.route('/')
 def home():
     return 'Webhook is running.'
+@app.route('/debug', methods=['POST'])
+def debug():
+    data = request.get_json()
+    print("DEBUG:", data)
+    return 'OK'
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
