@@ -32,6 +32,19 @@ def test_message():
     send_line_message("✅ 測試成功，這是從 Render 發出的 LINE 訊息！")
     return "測試訊息已發送"
 
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    data = request.get_json()
+    print("🟡 WEBHOOK START")
+    print("Raw JSON:", data)
+    sys.stdout.flush()
+
+    message = data.get("message", "⚠️ TradingView 警報觸發！")
+    print("Extracted message:", message)
+    sys.stdout.flush()
+
+    send_line_message(message)
+    return 'OK'
     
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
