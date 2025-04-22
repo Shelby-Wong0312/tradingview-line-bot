@@ -17,7 +17,9 @@ def home():
 @app.route('/debug', methods=['POST'])
 def debug():
     data = request.get_json()
-    print("DEBUG:", data)
+    print("🟢 DEBUG START")
+    print(data)
+    print("🟢 DEBUG END")
     return 'OK'
 
 if __name__ == '__main__':
