@@ -17,9 +17,13 @@ def home():
 @app.route('/debug', methods=['POST'])
 def debug():
     print("🟢 DEBUG START")
+    sys.stdout.flush()
     print("Raw headers:", dict(request.headers))
+    sys.stdout.flush()
     print("Raw body:", request.data.decode('utf-8'))
+    sys.stdout.flush()
     print("🟢 DEBUG END")
+    sys.stdout.flush()
     return 'OK'
     
 if __name__ == '__main__':
