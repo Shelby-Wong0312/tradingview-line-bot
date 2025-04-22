@@ -26,6 +26,12 @@ def debug():
     print("🟢 DEBUG END")
     sys.stdout.flush()
     return 'OK'
+
+@app.route('/test')
+def test_message():
+    send_line_message("✅ 測試成功，這是從 Render 發出的 LINE 訊息！")
+    return "測試訊息已發送"
+
     
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
