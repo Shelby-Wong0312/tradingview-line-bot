@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: tradingview-line-webhook
+    env: python
+    buildCommand: ""
+    startCommand: "python app.py"
+    envVars:
+      - key: LINE_CHANNEL_ACCESS_TOKEN
+        value: <之後我們會貼上你的 LINE 權杖>
+      - key: LINE_TO_ID
+        value: <之後我們會貼上你的群組 ID 或個人 user ID>
